@@ -5,11 +5,11 @@ const Footer = () => {
       const loadFooter = async () => {
         if (!window.footerInitialized) {
           window.footerInitialized = true;
-          const authoringpath = new URLSearchParams(window.location.search).get('authoringpath') || '/federal/home';
+          const authoringPath = new URLSearchParams(window.location.search).get('authoringPath') || '/federal/home';
           const env = new URLSearchParams(window.location.search).get('env') || 'qa';
           const privacyId = new URLSearchParams(window.location.search).get('privacyId');
           const module = await import('https://feds--milo--adobecom.hlx.page/libs/navigation/footer.js');
-          module.default({ authoringpath, env, privacyId });
+          module.default({ authoringPath, env, privacyId });
         }
       };  
       loadFooter();
