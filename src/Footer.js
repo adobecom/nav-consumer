@@ -7,9 +7,10 @@ const Footer = () => {
           window.footerInitialized = true;
           const authoringPath = new URLSearchParams(window.location.search).get('authoringpath') || '/federal/home';
           const env = new URLSearchParams(window.location.search).get('env') || 'qa';
-          const privacyId = new URLSearchParams(window.location.search).get('privacyId');
+          const privacyId = new URLSearchParams(window.location.search).get('privacyid');
+          const locale = new URLSearchParams(window.location.search).get('locale');
           const module = await import('https://feds--milo--adobecom.hlx.page/libs/navigation/footer.js');
-          module.default({ authoringPath, env, privacyId });
+          module.default({ authoringPath, env, privacyId, locale });
         }
       };  
       loadFooter();
