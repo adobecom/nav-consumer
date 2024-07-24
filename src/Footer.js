@@ -9,7 +9,7 @@ const Footer = () => {
           const env = new URLSearchParams(window.location.search).get('env') || 'qa';
           const privacyId = new URLSearchParams(window.location.search).get('privacyid');
           const locale = new URLSearchParams(window.location.search).get('locale');
-          const module = await import('https://feds--milo--adobecom.hlx.page/libs/navigation/navigation.js');
+          const module = await import('https://stage--milo--adobecom.hlx.page/libs/navigation/navigation.js');
           module.default({ env, locale, footer: { authoringPath, privacyId } });
         }
       };  
