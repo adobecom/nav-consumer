@@ -11,6 +11,7 @@ async function init() {
   loadBlock({
     env,
     locale,
+    authoringPath,
     footer: { authoringPath, privacyId },
     header: { imsClientId, unavComponents },
   });
