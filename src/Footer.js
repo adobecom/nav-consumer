@@ -9,8 +9,18 @@ const Footer = () => {
           const env = new URLSearchParams(window.location.search).get('env') || 'qa';
           const privacyId = new URLSearchParams(window.location.search).get('privacyid');
           const locale = new URLSearchParams(window.location.search).get('locale');
-          const module = await import('https://stage--milo--adobecom.hlx.page/libs/navigation/navigation.js');
-          module.default({ env, locale, footer: { authoringPath, privacyId } });
+          const navBranch = new URLSearchParams(window.location.search).get('navbranch') || 'stage';
+          const unavComponents = new URLSearchParams(window.location.search).get('unav') || 'profile';
+          const imsClientId = new URLSearchParams(window.location.search).get('imsclientid') || 'fedsmilo';
+          
+          const module = await import(/* webpackIgnore: true */ `https://${navBranch}--milo--adobecom.hlx.page/libs/navigation/navigation.js`);
+          module.default({
+            env,
+            locale,
+            authoringPath,
+            footer: { authoringPath, privacyId },
+            header: { imsClientId, unavComponents },
+          });
         }
       };  
       loadFooter();
