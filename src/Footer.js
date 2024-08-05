@@ -12,6 +12,7 @@ const Footer = () => {
           const navBranch = new URLSearchParams(window.location.search).get('navbranch') || 'stage';
           const unavComponents = new URLSearchParams(window.location.search).get('unav') || 'profile';
           const imsClientId = new URLSearchParams(window.location.search).get('imsclientid') || 'fedsmilo';
+          const redirect = new URLSearchParams(window.location.search).get("redirect") || "off";
           
           const module = await import(/* webpackIgnore: true */ `https://${navBranch}--milo--adobecom.hlx.page/libs/navigation/navigation.js`);
           module.default({
@@ -19,7 +20,7 @@ const Footer = () => {
             locale,
             authoringPath,
             footer: { authoringPath, privacyId },
-            header: { imsClientId, unavComponents },
+            header: { imsClientId, unavComponents, redirect },
           });
         }
       };  
