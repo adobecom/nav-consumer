@@ -29,7 +29,7 @@ const Footer = () => {
 
     return (
         <main>
-          <img src={banner} alt='banner' style={{ maxWidth: '100%', height: 'auto', display: 'block', margin: '20px auto' }}></img>
+          <img src={banner} alt='banner' style={{ maxWidth: '100%', height: 'auto', display: 'block' }}></img>
         </main>
     );
   }
