@@ -2,9 +2,9 @@ const authoringPath = new URLSearchParams(window.location.search).get("authoring
 const env = new URLSearchParams(window.location.search).get("env") || "stage";
 const privacyId = new URLSearchParams(window.location.search).get("privacyid");
 const locale = new URLSearchParams(window.location.search).get("locale");
-const navBranch = new URLSearchParams(window.location.search).get("navbranch") || "stage";
-const unavComponents = new URLSearchParams(window.location.search).get("unav") || "profile";
-const imsClientId = new URLSearchParams(window.location.search).get("imsclientid") || "fedsmilo";
+const navBranch = new URLSearchParams(window.location.search).get("navbranch") || "gnav";
+const unavComponents = new URLSearchParams(window.location.search).get("unav") || "appswitcher,profile,notifications";
+const imsClientId = new URLSearchParams(window.location.search).get("imsclientid") || "adobedotcom";
 const redirect = new URLSearchParams(window.location.search).get("redirect") || "off";
 
 async function init() {
