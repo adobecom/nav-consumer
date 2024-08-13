@@ -6,12 +6,14 @@ const navBranch = new URLSearchParams(window.location.search).get("navbranch") |
 const unavComponents = new URLSearchParams(window.location.search).get("unav") || "appswitcher,profile,notifications";
 const imsClientId = new URLSearchParams(window.location.search).get("imsclientid") || "adobedotcom-cc";
 const redirect = new URLSearchParams(window.location.search).get("redirect") || "off";
+const theme = new URLSearchParams(window.location.search).get("theme") || "light";
 
 async function init() {
   const { default: loadBlock } = await import(`https://${navBranch}--milo--adobecom.hlx.page/libs/navigation/navigation.js`);
   loadBlock({
     env,
     locale,
+    theme,
     authoringPath,
     footer: { authoringPath, privacyId },
     header: { imsClientId, unavComponents, redirect },
