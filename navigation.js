@@ -15,10 +15,9 @@ async function init() {
     env,
     locale,
     theme,
-    unavVersion,
     authoringPath,
     footer: { authoringPath, privacyId },
-    header: { imsClientId, unavComponents, redirect },
+    header: { imsClientId, unavComponents, redirect, unavVersion },
   });
 }
 init();
