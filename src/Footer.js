@@ -14,12 +14,14 @@ const Footer = () => {
           const imsClientId = new URLSearchParams(window.location.search).get('imsclientid') || 'adobedotcom-cc';
           const redirect = new URLSearchParams(window.location.search).get("redirect") || "off";
           const theme = new URLSearchParams(window.location.search).get("theme") || "light";
+          const unaVersion = new URLSearchParams(window.location.search).get("unav-version") || "";
 
           const module = await import(/* webpackIgnore: true */ `https://${navBranch}--milo--adobecom.hlx.page/libs/navigation/navigation.js`);
           module.default({
             env,
             locale,
             theme,
+            unaVersion,
             authoringPath,
             footer: { authoringPath, privacyId },
             header: { imsClientId, unavComponents, redirect },
