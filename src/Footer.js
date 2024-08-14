@@ -21,10 +21,9 @@ const Footer = () => {
             env,
             locale,
             theme,
-            unavVersion,
             authoringPath,
             footer: { authoringPath, privacyId },
-            header: { imsClientId, unavComponents, redirect },
+            header: { imsClientId, unavComponents, redirect, unavVersion },
           });
         }
       };  
