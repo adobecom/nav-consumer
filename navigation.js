@@ -7,7 +7,7 @@ const unavComponents = new URLSearchParams(window.location.search).get("unav") |
 const imsClientId = new URLSearchParams(window.location.search).get("imsclientid") || "adobedotcom-cc";
 const redirect = new URLSearchParams(window.location.search).get("redirect") || "off";
 const theme = new URLSearchParams(window.location.search).get("theme") || "light";
-const unaVersion = new URLSearchParams(window.location.search).get("unav-version") || "";
+const unavVersion = new URLSearchParams(window.location.search).get("unav-version") || "";
 
 async function init() {
   const { default: loadBlock } = await import(`https://${navBranch}--milo--adobecom.hlx.page/libs/navigation/navigation.js`);
@@ -15,7 +15,7 @@ async function init() {
     env,
     locale,
     theme,
-    unaVersion,
+    unavVersion,
     authoringPath,
     footer: { authoringPath, privacyId },
     header: { imsClientId, unavComponents, redirect },
