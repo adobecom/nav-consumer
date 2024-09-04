@@ -7,6 +7,7 @@ const unavComponents = new URLSearchParams(window.location.search).get("unav") |
 const imsClientId = new URLSearchParams(window.location.search).get("imsclientid") || "adobedotcom-cc";
 const redirect = new URLSearchParams(window.location.search).get("redirect") || "off";
 const theme = new URLSearchParams(window.location.search).get("theme") || "light";
+const searchEnabled = new URLSearchParams(window.location.search).get("searchEnabled") || "off";
 const unavVersion = new URLSearchParams(window.location.search).get("unav-version") || "";
 
 async function init() {
@@ -17,7 +18,7 @@ async function init() {
     theme,
     authoringPath,
     footer: { authoringPath, privacyId },
-    header: { imsClientId, unavComponents, redirect, unavVersion },
+    header: { imsClientId, unavComponents, redirect, unavVersion, searchEnabled },
   });
 }
 init();
