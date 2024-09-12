@@ -23,6 +23,12 @@ const Footer = () => {
             locale,
             theme,
             authoringPath,
+            onReady: () => {
+              console.log('Gnav ready')
+            },
+            onError: (e) => {
+              console.log(e)
+            },
             footer: { authoringPath, privacyId },
             header: { imsClientId, unavComponents, redirect, unavVersion, searchEnabled },
           });
