@@ -3,12 +3,11 @@ const env = new URLSearchParams(window.location.search).get("env") || "stage";
 const privacyId = new URLSearchParams(window.location.search).get("privacyid");
 const locale = new URLSearchParams(window.location.search).get("locale");
 const navBranch = new URLSearchParams(window.location.search).get("navbranch") || "gnav";
-const unavComponents = new URLSearchParams(window.location.search).get("unav") || "appswitcher,profile,notifications";
+const unavComponents = new URLSearchParams(window.location.search).get("unav") || "appswitcher,profile,notifications,help";
 const imsClientId = new URLSearchParams(window.location.search).get("imsclientid") || "adobedotcom-cc";
 const redirect = new URLSearchParams(window.location.search).get("redirect") || "off";
 const theme = new URLSearchParams(window.location.search).get("theme") || "light";
 const searchEnabled = new URLSearchParams(window.location.search).get("searchEnabled") || "off";
-const unavVersion = new URLSearchParams(window.location.search).get("unav-version") || "";
 
 async function init() {
   const { default: loadBlock } = await import(`https://${navBranch}--milo--adobecom.hlx.page/libs/navigation/navigation.js`);
@@ -24,7 +23,23 @@ async function init() {
       console.log(e)
     },
     footer: { authoringPath, privacyId },
-    header: { imsClientId, unavComponents, redirect, unavVersion, searchEnabled },
+    header: {
+      imsClientId,
+      unavComponents,
+      redirect,
+      searchEnabled,
+      unavHelpChildren: [
+        { type: 'Support' },
+        { type: 'Community' },
+        {
+          title: 'Custom 1',
+          onAction: () => {
+            console.log('Custom 1 is clicked!')
+          },
+          analyticsIdentifier: 'unav-custom-1',
+        },
+      ]
+    },
   });
 }
 init();
