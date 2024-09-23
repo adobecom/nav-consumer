@@ -16,12 +16,6 @@ async function init() {
     locale,
     theme,
     authoringPath,
-    onReady: () => {
-      console.log('Gnav ready')
-    },
-    onError: (e) => {
-      console.log(e)
-    },
     footer: { authoringPath, privacyId },
     header: {
       imsClientId,
@@ -38,7 +32,13 @@ async function init() {
           },
           analyticsIdentifier: 'unav-custom-1',
         },
-      ]
+      ],
+      onReady: () => {
+        console.log('Gnav ready')
+      },
+      onError: (e) => {
+        console.log(e)
+      },
     },
   });
 }
