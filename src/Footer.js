@@ -10,6 +10,7 @@ const Footer = () => {
           const privacyId = new URLSearchParams(window.location.search).get('privacyid');
           const locale = new URLSearchParams(window.location.search).get('locale');
           const navBranch = new URLSearchParams(window.location.search).get('navbranch') || 'gnav';
+          const customLinks = new URLSearchParams(window.location.search).get("customlinks") || "";
           const unavComponents = new URLSearchParams(window.location.search).get('unav') || 'appswitcher,profile,notifications,help';
           const imsClientId = new URLSearchParams(window.location.search).get('imsclientid') || 'adobedotcom-cc';
           const redirect = new URLSearchParams(window.location.search).get("redirect") || "off";
@@ -34,6 +35,7 @@ const Footer = () => {
               unavComponents,
               redirect,
               searchEnabled,
+              customLinks,
               unavHelpChildren: [
                 { type: 'Support' },
                 { type: 'Community' },
