@@ -22,12 +22,6 @@ const Footer = () => {
             locale,
             theme,
             authoringPath,
-            onReady: () => {
-              console.log('Gnav ready')
-            },
-            onError: (e) => {
-              console.log(e)
-            },
             footer: { authoringPath, privacyId },
             header: {
               imsClientId,
@@ -44,7 +38,13 @@ const Footer = () => {
                   },
                   analyticsIdentifier: 'unav-custom-1',
                 },
-              ]
+              ],
+              onReady: () => {
+                console.log('Gnav ready')
+              },
+              onError: (e) => {
+                console.log(e)
+              },
             },
           });
         }
