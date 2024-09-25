@@ -17,7 +17,16 @@ async function init() {
     locale,
     theme,
     authoringPath,
-    footer: { authoringPath, privacyId },
+    footer: {
+      authoringPath,
+      privacyId,
+      onReady: () => {
+        console.log('Footer ready')
+      },
+      onError: (e) => {
+        console.log(e)
+      },
+    },
     header: {
       imsClientId,
       unavComponents,
