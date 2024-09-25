@@ -26,12 +26,12 @@ const Footer = () => {
             footer: {
               authoringPath,
               privacyId,
-              onReady: () => {
-                console.log('Footer ready')
-              },
-              onError: (e) => {
-                console.log(e)
-              },
+              // onReady: () => {
+              //   console.log('Footer ready')
+              // },
+              // onError: (e) => {
+              //   console.log(e)
+              // },
             },
             header: {
               imsClientId,
@@ -39,6 +39,7 @@ const Footer = () => {
               redirect,
               searchEnabled,
               customLinks,
+              showUnavSectionDivider: true,
               unavHelpChildren: [
                 { type: 'Support' },
                 { type: 'Community' },
