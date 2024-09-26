@@ -5,17 +5,19 @@ const Footer = () => {
       const loadFooter = async () => {
         if (!window.footerInitialized) {
           window.footerInitialized = true;
-          const authoringPath = new URLSearchParams(window.location.search).get('authoringpath') || '/federal/dev';
-          const env = new URLSearchParams(window.location.search).get('env') || 'stage';
-          const privacyId = new URLSearchParams(window.location.search).get('privacyid');
-          const locale = new URLSearchParams(window.location.search).get('locale');
-          const navBranch = new URLSearchParams(window.location.search).get('navbranch') || 'gnav';
-          const customLinks = new URLSearchParams(window.location.search).get("customlinks") || "";
-          const unavComponents = new URLSearchParams(window.location.search).get('unav') || 'appswitcher,profile,notifications,help';
-          const imsClientId = new URLSearchParams(window.location.search).get('imsclientid') || 'adobedotcom-cc';
-          const redirect = new URLSearchParams(window.location.search).get("redirect") || "off";
-          const theme = new URLSearchParams(window.location.search).get("theme") || "light";
-          const searchEnabled = new URLSearchParams(window.location.search).get("searchEnabled") || "off";
+          const searchParams = new URLSearchParams(window.location.search);
+          const authoringPath = searchParams.get('authoringpath') || '/federal/dev';
+          const env = searchParams.get('env') || 'stage';
+          const privacyId = searchParams.get('privacyid');
+          const locale = searchParams.get('locale');
+          const navBranch = searchParams.get('navbranch') || 'gnav';
+          const customLinks = searchParams.get("customlinks") || "";
+          const unavComponents = searchParams.get('unav') || 'appswitcher,profile,notifications,help';
+          const imsClientId = searchParams.get('imsclientid') || 'adobedotcom-cc';
+          const redirect = searchParams.get("redirect") || "off";
+          const theme = searchParams.get("theme") || "light";
+          const searchEnabled = searchParams.get("searchEnabled") || "off";
+          const showUnavSectionDivider = searchParams.get("showUnavSectionDivider") || "false";
 
           const module = await import(/* webpackIgnore: true */ `https://${navBranch}--milo--adobecom.hlx.page/libs/navigation/navigation.js`);
           module.default({
@@ -39,7 +41,7 @@ const Footer = () => {
               redirect,
               searchEnabled,
               customLinks,
-              showUnavSectionDivider: true,
+              showUnavSectionDivider: showUnavSectionDivider.toLowerCase() === "true",
               unavHelpChildren: [
                 { type: 'Support' },
                 { type: 'Community' },
