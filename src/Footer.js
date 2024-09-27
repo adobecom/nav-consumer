@@ -38,11 +38,10 @@ const Footer = () => {
             },
             header: {
               imsClientId,
-              unavComponents,
               redirect,
               searchEnabled,
               customLinks,
-              showUnavSectionDivider: showUnavSectionDivider.toLowerCase() === "true",
+              showSectionDivider: showUnavSectionDivider.toLowerCase() === "true",
               // Remove after code merge
               unavHelpChildren: [
                 { type: 'Support' },
@@ -56,6 +55,7 @@ const Footer = () => {
                 },
               ],
               unav: {
+                unavComponents,
                 unavHelpChildren: [
                   { type: 'Support' },
                   { type: 'Community' },
