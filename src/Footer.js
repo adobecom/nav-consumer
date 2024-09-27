@@ -41,7 +41,6 @@ const Footer = () => {
               redirect,
               searchEnabled,
               customLinks,
-              showSectionDivider: showUnavSectionDivider.toLowerCase() === "true",
               // Remove after code merge
               unavHelpChildren: [
                 { type: 'Support' },
@@ -68,7 +67,7 @@ const Footer = () => {
                   },
                 ],
                 uncAppId,
-                showUnavSectionDivider: showUnavSectionDivider.toLowerCase() === "true",
+                showSectionDivider: showUnavSectionDivider.toLowerCase() === "true",
               },
               onReady: () => {
                 console.log('Gnav ready')
