@@ -42,6 +42,18 @@ const Footer = () => {
               searchEnabled,
               customLinks,
               showUnavSectionDivider: showUnavSectionDivider.toLowerCase() === "true",
+              // Remove after code merge
+              unavHelpChildren: [
+                { type: 'Support' },
+                { type: 'Community' },
+                {
+                  title: 'Custom 1',
+                  onAction: () => {
+                    console.log('Custom 1 is clicked!')
+                  },
+                  analyticsIdentifier: 'unav-custom-1',
+                },
+              ],
               unav: {
                 unavHelpChildren: [
                   { type: 'Support' },
