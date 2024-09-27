@@ -32,11 +32,10 @@ async function init() {
     },
     header: {
       imsClientId,
-      unavComponents,
       redirect,
       searchEnabled,
       customLinks,
-      showUnavSectionDivider: showUnavSectionDivider.toLowerCase() === "true",
+      showSectionDivider: showUnavSectionDivider.toLowerCase() === "true",
       // Remove after code merge
       unavHelpChildren: [
         { type: 'Support' },
@@ -50,6 +49,7 @@ async function init() {
         },
       ],
       unav: {
+        unavComponents,
         unavHelpChildren: [
           { type: 'Support' },
           { type: 'Community' },
