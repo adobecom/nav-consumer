@@ -32,6 +32,8 @@ async function init() {
     },
     header: {
       imsClientId,
+      // Remove after this PR(https://github.com/adobecom/milo/pull/2969) merge
+      unavComponents,
       redirect,
       searchEnabled,
       customLinks,
