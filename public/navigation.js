@@ -35,17 +35,21 @@ async function init() {
       searchEnabled,
       customLinks,
       showUnavSectionDivider: showUnavSectionDivider.toLowerCase() === "true",
-      unavHelpChildren: [
-        { type: 'Support' },
-        { type: 'Community' },
-        {
-          title: 'Custom 1',
-          onAction: () => {
-            console.log('Custom 1 is clicked!')
+      unav: {
+        unavHelpChildren: [
+          { type: 'Support' },
+          { type: 'Community' },
+          {
+            title: 'Custom 1',
+            onAction: () => {
+              console.log('Custom 1 is clicked!')
+            },
+            analyticsIdentifier: 'unav-custom-1',
           },
-          analyticsIdentifier: 'unav-custom-1',
-        },
-      ],
+        ],
+        uncAppId: imsClientId,
+        showUnavSectionDivider: showUnavSectionDivider.toLowerCase() === "true",
+      },
       onReady: () => {
         console.log('Gnav ready')
       },
