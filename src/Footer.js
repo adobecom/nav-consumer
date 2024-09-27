@@ -11,7 +11,7 @@ const Footer = () => {
           const privacyId = searchParams.get('privacyid');
           const locale = searchParams.get('locale');
           const navBranch = searchParams.get('navbranch') || 'gnav';
-          const customLinks = searchParams.get("customlinks") || "";
+          const customLinks = searchParams.get("customlinks");
           const unavComponents = searchParams.get('unav') || 'appswitcher,profile,notifications,help';
           const imsClientId = searchParams.get('imsclientid') || 'adobedotcom-cc';
           const redirect = searchParams.get("redirect") || "off";
