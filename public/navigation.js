@@ -11,6 +11,8 @@ const redirect = searchParams.get("redirect") || "off";
 const theme = searchParams.get("theme") || "light";
 const searchEnabled = searchParams.get("searchEnabled") || "off";
 const showUnavSectionDivider = searchParams.get("showUnavSectionDivider") || "false";
+const uncAppId = searchParams.get("uncid");
+
 async function init() {
   const { default: loadBlock } = await import(`https://${navBranch}--milo--adobecom.hlx.page/libs/navigation/navigation.js`);
   loadBlock({
@@ -59,7 +61,7 @@ async function init() {
             analyticsIdentifier: 'unav-custom-1',
           },
         ],
-        uncAppId: imsClientId,
+        uncAppId,
         showUnavSectionDivider: showUnavSectionDivider.toLowerCase() === "true",
       },
       onReady: () => {

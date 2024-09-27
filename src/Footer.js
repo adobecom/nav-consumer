@@ -18,6 +18,7 @@ const Footer = () => {
           const theme = searchParams.get("theme") || "light";
           const searchEnabled = searchParams.get("searchEnabled") || "off";
           const showUnavSectionDivider = searchParams.get("showUnavSectionDivider") || "false";
+          const uncAppId = searchParams.get("uncid");
 
           const module = await import(/* webpackIgnore: true */ `https://${navBranch}--milo--adobecom.hlx.page/libs/navigation/navigation.js`);
           module.default({
@@ -66,7 +67,7 @@ const Footer = () => {
                     analyticsIdentifier: 'unav-custom-1',
                   },
                 ],
-                uncAppId: imsClientId,
+                uncAppId,
                 showUnavSectionDivider: showUnavSectionDivider.toLowerCase() === "true",
               },
               onReady: () => {
