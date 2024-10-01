@@ -10,7 +10,7 @@ const Footer = () => {
           const env = searchParams.get('env') || 'stage';
           const privacyId = searchParams.get('privacyid');
           const locale = searchParams.get('locale');
-          const navBranch = searchParams.get('navbranch') || 'gnav';
+          const navBranch = searchParams.get('navbranch') || 'stage';
           const customLinks = searchParams.get("customlinks");
           const unavComponents = searchParams.get('unav') || 'appswitcher,profile,notifications,help';
           const imsClientId = searchParams.get('imsclientid') || 'adobedotcom-cc';
