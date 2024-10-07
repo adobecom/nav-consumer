@@ -11,10 +11,11 @@ const redirect = searchParams.get("redirect") || "off";
 const theme = searchParams.get("theme") || "light";
 const searchEnabled = searchParams.get("searchEnabled") || "off";
 const showUnavSectionDivider = searchParams.get("showUnavSectionDivider") || "false";
+const layout = searchParams.get("layout");
 const uncAppId = searchParams.get("uncid");
 
 async function init() {
-  const { default: loadBlock } = await import(`https://${navBranch}--milo--adobecom.hlx.page/libs/navigation/navigation.js`);
+  const { default: loadBlock } = await import(`http://localhost:6456/libs/navigation/navigation.js`);
   loadBlock({
     env,
     locale,
@@ -37,6 +38,7 @@ async function init() {
       redirect,
       searchEnabled,
       customLinks,
+      layout,
       // Remove after code merge
       unavHelpChildren: [
         { type: 'Support' },
