@@ -15,7 +15,7 @@ const layout = searchParams.get("layout");
 const uncAppId = searchParams.get("uncid");
 
 async function init() {
-  const { default: loadBlock } = await import(`http://localhost:6456/libs/navigation/navigation.js`);
+  const { default: loadBlock } = await import(`http://${navBranch}--milo--adobecom.hlx.page/libs/navigation/navigation.js`);
   loadBlock({
     env,
     locale,
