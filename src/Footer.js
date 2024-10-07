@@ -18,6 +18,7 @@ const Footer = () => {
           const theme = searchParams.get("theme") || "light";
           const searchEnabled = searchParams.get("searchEnabled") || "off";
           const showUnavSectionDivider = searchParams.get("showUnavSectionDivider") || "false";
+          const layout = searchParams.get("layout");
           const uncAppId = searchParams.get("uncid");
 
           const module = await import(/* webpackIgnore: true */ `https://${navBranch}--milo--adobecom.hlx.page/libs/navigation/navigation.js`);
@@ -43,6 +44,7 @@ const Footer = () => {
               redirect,
               searchEnabled,
               customLinks,
+              layout,
               // Remove after code merge
               unavHelpChildren: [
                 { type: 'Support' },
