@@ -8,3 +8,13 @@ body {
 code {
   font-family: 'Adobe Clean', adobe-clean, 'Trebuchet MS', sans-serif;
 }
+
+.feds-client-search button {
+  padding-left: 0;
+  padding-right: 0;
+  border: none;
+ }
+.feds-client-search svg {
+  height: 100%;
+  width: 20px;
+}
