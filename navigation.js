@@ -12,7 +12,6 @@ const theme = searchParams.get("theme") || "light";
 const searchEnabled = searchParams.get("searchEnabled") || "off";
 const showUnavSectionDivider = searchParams.get("showUnavSectionDivider") || "false";
 const layout = searchParams.get("layout");
-const noBorder = searchParams.get("noborder") || "false";
 const uncAppId = searchParams.get("uncid");
 
 async function init() {
@@ -25,14 +24,33 @@ async function init() {
     footer: {
       authoringPath,
       privacyId,
+      // onReady: () => {
+      //   console.log('Footer ready')
+      // },
+      // onError: (e) => {
+      //   console.log(e)
+      // },
     },
     header: {
       imsClientId,
+      // Remove after this PR(https://github.com/adobecom/milo/pull/2969) merge
+      unavComponents,
       redirect,
       searchEnabled,
       customLinks,
       layout,
-      noBorder: noBorder.toLowerCase() === "true",
+      // Remove after code merge
+      unavHelpChildren: [
+        { type: 'Support' },
+        { type: 'Community' },
+        {
+          title: 'Custom 1',
+          onAction: () => {
+            console.log('Custom 1 is clicked!')
+          },
+          analyticsIdentifier: 'unav-custom-1',
+        },
+      ],
       unav: {
         unavComponents,
         unavHelpChildren: [
