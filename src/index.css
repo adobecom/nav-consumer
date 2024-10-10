@@ -9,6 +9,10 @@ code {
   font-family: 'Adobe Clean', adobe-clean, 'Trebuchet MS', sans-serif;
 }
 
+.feds-client-search {
+  display: flex;
+}
+
 .feds-client-search button {
   padding-left: 0;
   padding-right: 0;
