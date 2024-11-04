@@ -67,6 +67,9 @@ async function init() {
         console.log(e)
       },
     },
+    stageDomainsMap: {
+      'developer.adobe.com': 'developer-stage.adobe.com'
+    },
   });
 }
 init();
