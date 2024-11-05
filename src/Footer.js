@@ -21,8 +21,9 @@ const Footer = () => {
           const layout = searchParams.get("layout");
           const noBorder = searchParams.get("noborder") || "false";
           const uncAppId = searchParams.get("uncid");
-
-          const module = await import(/* webpackIgnore: true */ `https://${navBranch}--milo--adobecom.hlx.page/libs/navigation/navigation.js`);
+          const usebundle = searchParams.get("usebundle");
+          const url = `https://${navBranch}--milo--adobecom.hlx.page/libs/navigation/${usebundle ?? '/dist/'}/navigation.js`;
+          const module = await import(/* webpackIgnore: true */ `${url}`);
           module.default({
             env,
             locale,
