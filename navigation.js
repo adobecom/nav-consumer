@@ -14,9 +14,11 @@ const showUnavSectionDivider = searchParams.get("showUnavSectionDivider") || "fa
 const layout = searchParams.get("layout");
 const noBorder = searchParams.get("noborder") || "false";
 const uncAppId = searchParams.get("uncid");
+const usebundle = searchParams.get("usebundle");
 
 async function init() {
-  const { default: loadBlock } = await import(`https://${navBranch}--milo--adobecom.hlx.page/libs/navigation/navigation.js`);
+  const url = `https://${navBranch}--milo--adobecom.hlx.page/libs/navigation/${usebundle ?? '/dist/'}/navigation.js`;
+  const { default: loadBlock } = await import(`${url}`);
   loadBlock({
     env,
     locale,
