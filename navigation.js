@@ -17,7 +17,7 @@ const uncAppId = searchParams.get("uncid");
 const usebundle = searchParams.get("usebundle");
 
 async function init() {
-  const url = `https://${navBranch}--milo--adobecom.hlx.page/libs/navigation/${usebundle ?? 'dist/'}navigation.js`;
+  const url = `https://${navBranch}--milo--adobecom.hlx.page/libs/navigation/${usebundle === 'true' ?? 'dist/'}navigation.js`;
   const { default: loadBlock } = await import(`${url}`);
   loadBlock({
     env,
