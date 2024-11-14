@@ -22,6 +22,8 @@ const Footer = () => {
           const noBorder = searchParams.get("noborder") || "false";
           const uncAppId = searchParams.get("uncid");
           const usebundle = searchParams.get("usebundle");
+          const isLocalNav = searchParams.get("localnav") || "false";
+          const newNav = searchParams.get("newNav") || "false";
           const url = `https://${navBranch}--milo--adobecom.hlx.page/libs/navigation/${usebundle === 'true' ? 'dist/' : ''}navigation.js`;
           const module = await import(/* webpackIgnore: true */ `${url}`);
           module.default({
@@ -39,8 +41,8 @@ const Footer = () => {
               searchEnabled,
               customLinks,
               layout,
-              isLocalNav: true,
-              newNav: true,
+              isLocalNav,
+              newNav,
               noBorder: noBorder.toLowerCase() === "true",
               unav: {
                 unavComponents,
