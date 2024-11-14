@@ -34,6 +34,8 @@ async function init() {
       searchEnabled,
       customLinks,
       layout,
+      isLocalNav: true,
+      newNav: true,
       noBorder: noBorder.toLowerCase() === "true",
       unav: {
         unavComponents,
