@@ -15,7 +15,7 @@ const layout = searchParams.get("layout");
 const noBorder = searchParams.get("noborder") || "false";
 const uncAppId = searchParams.get("uncid");
 const usebundle = searchParams.get("usebundle");
-const isLocalNav = searchParams.get("localnav") || "false";
+const isLocalNav = searchParams.get("localnav") || false;
 const newNav = searchParams.get("newNav") || "false";
           
 async function init() {
