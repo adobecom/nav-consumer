@@ -37,7 +37,7 @@ async function init() {
       customLinks,
       layout,
       isLocalNav,
-      newNav,
+      useNewMobileNav: newNav,
       noBorder: noBorder.toLowerCase() === "true",
       unav: {
         unavComponents,
@@ -76,6 +76,7 @@ async function init() {
     stageDomainsMap: {
       'developer.adobe.com': 'developer-stage.adobe.com'
     },
+    allowedOrigins: ['https://main--federal--adobecom.aem.page'],
   });
 }
 init();
