@@ -81,6 +81,7 @@ const Footer = () => {
             stageDomainsMap: {
               'developer.adobe.com': 'developer-stage.adobe.com'
             },
+            allowedOrigins: ['https://main--federal--adobecom.aem.page'],
           });
         }
       };  
