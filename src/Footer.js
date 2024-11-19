@@ -42,7 +42,7 @@ const Footer = () => {
               customLinks,
               layout,
               isLocalNav,
-              newNav,
+              useNewMobileNav: newNav,
               noBorder: noBorder.toLowerCase() === "true",
               unav: {
                 unavComponents,
