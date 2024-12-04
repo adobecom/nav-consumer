@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
-import banner from './learn.png'
+import banner from './learn.png';
+import loadGnav from '@adobecom/standalone-feds';
+
 const Footer = () => {
     useEffect(() => {
       const loadFooter = async () => {
@@ -21,12 +23,12 @@ const Footer = () => {
           const layout = searchParams.get("layout");
           const noBorder = searchParams.get("noborder") || "false";
           const uncAppId = searchParams.get("uncid");
-          const usebundle = searchParams.get("usebundle");
+          // const usebundle = searchParams.get("usebundle");
           const isLocalNav = searchParams.get("localnav") || false;
           const newNav = searchParams.get("newNav") || "false";
-          const url = `https://${navBranch}--milo--adobecom.hlx.page/libs/navigation/${usebundle === 'true' ? 'dist/' : ''}navigation.js`;
-          const module = await import(/* webpackIgnore: true */ `${url}`);
-          module.default({
+          // const url = `https://${navBranch}--milo--adobecom.hlx.page/libs/navigation/${usebundle === 'true' ? 'dist/' : ''}navigation.js`;
+          // const module = await import(/* webpackIgnore: true */ `${url}`);
+          loadGnav({
             env,
             locale,
             theme,
