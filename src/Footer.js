@@ -23,12 +23,15 @@ const Footer = () => {
           const layout = searchParams.get("layout");
           const noBorder = searchParams.get("noborder") || "false";
           const uncAppId = searchParams.get("uncid");
-          // const usebundle = searchParams.get("usebundle");
+          const usebundle = searchParams.get("usebundle");
           const isLocalNav = searchParams.get("localnav") || false;
           const newNav = searchParams.get("newNav") || "false";
-          // const url = `https://${navBranch}--milo--adobecom.hlx.page/libs/navigation/${usebundle === 'true' ? 'dist/' : ''}navigation.js`;
-          // const module = await import(/* webpackIgnore: true */ `${url}`);
-          loadGnav({
+          const url = `https://${navBranch}--milo--adobecom.hlx.page/libs/navigation/navigation.js`;
+          let module = (await import(/* webpackIgnore: true */ `${url}`)).default;
+          if (usebundle === 'true') {
+            module = loadGnav;
+          }
+          module({
             env,
             locale,
             theme,
@@ -83,7 +86,7 @@ const Footer = () => {
             stageDomainsMap: {
               'developer.adobe.com': 'developer-stage.adobe.com'
             },
-            allowedOrigins: ['https://main--federal--adobecom.aem.page'],
+            allowedOrigins: ['https://main--federal--adobecom.aem.page', 'localhost:3000/nav-consumer'],
           });
         }
       };  
