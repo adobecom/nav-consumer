@@ -76,7 +76,6 @@ async function init() {
     stageDomainsMap: {
       'developer.adobe.com': 'developer-stage.adobe.com'
     },
-    allowedOrigins: ['https://main--federal--adobecom.aem.page'],
   });
 }
 init();
