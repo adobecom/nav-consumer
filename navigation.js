@@ -5,7 +5,7 @@ const privacyId = searchParams.get("privacyid");
 const locale = searchParams.get("locale");
 const navBranch = searchParams.get("navbranch") || "stage";
 const customLinks = searchParams.get("customlinks");
-const unavComponents = searchParams.get("unav") || "appswitcher,profile,notifications,help";
+const unavComponents = searchParams.get("unav") || "";
 const imsClientId = searchParams.get("imsclientid") || "adobedotcom-cc";
 const redirect = searchParams.get("redirect") || "off";
 const theme = searchParams.get("theme") || "light";
@@ -16,7 +16,10 @@ const noBorder = searchParams.get("noborder") || "false";
 const uncAppId = searchParams.get("uncid");
 const usebundle = searchParams.get("usebundle");
 const isLocalNav = searchParams.get("localnav") || false;
-const newNav = searchParams.get("newNav") || "false";
+const newNav = searchParams.get("newNav") || "on";
+const useLocal = searchParams.get("useLocal") || false;
+const url = useLocal ? 'http://localhost:6456/libs/navigation/navigation.js' : `https://${navBranch}--milo--adobecom.hlx.page/libs/navigation/navigation.js`;
+const selfIntegrateUnav =  searchParams.get("self-unav") || "";
           
 async function init() {
   const url = `https://${navBranch}--milo--adobecom.hlx.page/libs/navigation/${usebundle === 'true' ? 'dist/' : ''}navigation.js`;
@@ -39,6 +42,7 @@ async function init() {
       isLocalNav,
       useNewMobileNav: newNav,
       noBorder: noBorder.toLowerCase() === "true",
+      selfIntegrateUnav: selfIntegrateUnav === 'true',
       unav: {
         unavComponents,
         unavHelpChildren: [
