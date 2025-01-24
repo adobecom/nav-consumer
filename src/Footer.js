@@ -25,8 +25,10 @@ const Footer = () => {
           const uncAppId = searchParams.get("uncid");
           const usebundle = searchParams.get("usebundle");
           const isLocalNav = searchParams.get("localnav") || false;
-          const newNav = searchParams.get("newNav") || "false";
-          const url = `https://${navBranch}--milo--adobecom.hlx.page/libs/navigation/navigation.js`;
+          const newNav = searchParams.get("newNav") || "";
+          const useLocal = searchParams.get("useLocal") || false;
+          const url = useLocal ? 'http://localhost:6456/libs/navigation/navigation.js' : `https://${navBranch}--milo--adobecom.hlx.page/libs/navigation/navigation.js`;
+          const selfIntegrateUnav =  searchParams.get("self-unav") || "";
           let module = (await import(/* webpackIgnore: true */ `${url}`)).default;
           if (usebundle === 'true') {
             module = loadGnav;
@@ -49,6 +51,7 @@ const Footer = () => {
               isLocalNav,
               useNewMobileNav: newNav,
               noBorder: noBorder.toLowerCase() === "true",
+              selfIntegrateUnav: selfIntegrateUnav === 'true',
               unav: {
                 unavComponents,
                 unavHelpChildren: [
