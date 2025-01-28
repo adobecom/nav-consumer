@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunknav_consumer=self.webpackChunknav_consumer||[]).push([[5156],{5156:(t,e,n)=>{n.r(e),n.d(e,{default:()=>c});n(5769);function c(t){if(!t)return;document.title="".concat(document.title," ").concat(t);const e=document.querySelector('meta[property="og:title"]');e&&e.setAttribute("content",document.title);const n=document.querySelector('meta[name="twitter:title"]');n&&n.setAttribute("content",document.title)}}}]);
-//# sourceMappingURL=5156.78b1d0c3.chunk.js.map
