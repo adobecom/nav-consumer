@@ -41,6 +41,13 @@ const Footer = () => {
             footer: {
               authoringPath,
               privacyId,
+              onReady: () => {
+                console.log('Footer ready');
+              },
+              onError: (e) => {
+                console.log('Footer Error');
+                console.log(e)
+              },
             },
             header: {
               imsClientId,
