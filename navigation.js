@@ -18,11 +18,11 @@ const usebundle = searchParams.get("usebundle");
 const isLocalNav = searchParams.get("localnav") || false;
 const newNav = searchParams.get("newNav") || "on";
 const useLocal = searchParams.get("useLocal") || false;
-const url = useLocal ? 'http://localhost:6456/libs/navigation/navigation.js' : `https://${navBranch}--milo--adobecom.hlx.page/libs/navigation/navigation.js`;
+const url = useLocal ? 'http://localhost:6456/libs/navigation/navigation.js' : `https://${navBranch}--milo--adobecom.aem.page/libs/navigation/navigation.js`;
 const selfIntegrateUnav =  searchParams.get("self-unav") || "";
           
 async function init() {
-  const url = `https://${navBranch}--milo--adobecom.hlx.page/libs/navigation/${usebundle === 'true' ? 'dist/' : ''}navigation.js`;
+  const url = `https://${navBranch}--milo--adobecom.aem.page/libs/navigation/${usebundle === 'true' ? 'dist/' : ''}navigation.js`;
   const { default: loadBlock } = await import(`${url}`);
   loadBlock({
     env,
