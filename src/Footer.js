@@ -90,6 +90,7 @@ const Footer = () => {
                 }
               },
               onError: (e) => {
+                console.log('Gnav Error');
                 console.log(e)
               },
             },

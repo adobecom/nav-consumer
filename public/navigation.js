@@ -81,6 +81,7 @@ async function init() {
         }
       },
       onError: (e) => {
+        console.log('Gnav Error');
         console.log(e)
       },
     },
