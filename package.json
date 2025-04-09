@@ -4,7 +4,7 @@
   "homepage": "https://adobecom.github.io/nav-consumer",
   "private": true,
   "dependencies": {
-    "@adobecom/standalone-feds": "https://github.com/adobecom/milo/releases/download/feds-standalone-v0.0.4/adobecom-standalone-feds-0.0.4.tgz",
+    "@adobecom/standalone-feds": "https://github.com/adobecom/milo/releases/download/feds-standalone-v0.0.7-hotfix/adobecom-standalone-feds-0.0.7-hotfix.tgz",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
