@@ -27,6 +27,7 @@ const Footer = () => {
           const isLocalNav = searchParams.get("localnav") || false;
           const newNav = searchParams.get("newNav") || "";
           const useLocal = searchParams.get("useLocal") || false;
+          const useCompactGnav = searchParams.get("compactGnav") || false;
           const url = useLocal ? 'http://localhost:6456/libs/navigation/navigation.js' : `https://${navBranch}--milo--adobecom.aem.page/libs/navigation/navigation.js`;
           const selfIntegrateUnav =  searchParams.get("self-unav") || "";
           let module = (await import(/* webpackIgnore: true */ `${url}`)).default;
@@ -50,6 +51,7 @@ const Footer = () => {
               },
             },
             header: {
+              useCompactGnav,
               imsClientId,
               redirect,
               searchEnabled,
