@@ -91,5 +91,8 @@ async function init() {
       'developer.adobe.com': 'developer-stage.adobe.com'
     },
   });
+  document.getElementById('close-gnav').addEventListener('click', () => {
+   window.closeGnav?.();
+  });
 }
 init();
