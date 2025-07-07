@@ -10,6 +10,8 @@ const imsClientId = searchParams.get("imsclientid") || "adobedotcom-cc";
 const redirect = searchParams.get("redirect") || "off";
 const theme = searchParams.get("theme") || "light";
 const searchEnabled = searchParams.get("searchEnabled") || "off";
+const isMiniGnav = searchParams.get("mini-gnav") || false;
+const desktopAppsCta = searchParams.get("desktopAppsCta") || false;
 const showUnavSectionDivider = searchParams.get("showUnavSectionDivider") || "false";
 const layout = searchParams.get("layout");
 const noBorder = searchParams.get("noborder") || "false";
@@ -49,6 +51,8 @@ async function init() {
       customLinks,
       layout,
       isLocalNav,
+      miniGnav: isMiniGnav === "true",
+      desktopAppsCta: desktopAppsCta === "true",
       useNewMobileNav: newNav,
       noBorder: noBorder.toLowerCase() === "true",
       selfIntegrateUnav: selfIntegrateUnav === 'true',
@@ -80,6 +84,20 @@ async function init() {
                   </svg>
               </span>
             </button>`;
+        }
+        const desktopAppsCta = document.querySelector('.feds-client-desktop-apps');
+        if(desktopAppsCta) {
+          const isDark = theme === 'dark';
+          desktopAppsCta.innerHTML = `<button aria-label="Desktop Apps">Desktop Apps</button>`;
+          const button = desktopAppsCta.querySelector('button');
+          // Apply styles
+          Object.assign(button.style, {
+            border: 'none',
+            background: isDark ? 'white' : 'black',
+            color: isDark ? 'black' : 'white',
+            borderRadius: '50px',
+            padding: '5px 12px'
+          });
         }
       },
       onError: (e) => {
