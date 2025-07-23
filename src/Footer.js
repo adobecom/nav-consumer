@@ -32,6 +32,7 @@ const Footer = () => {
           const useCompactGnav = searchParams.get("compactGnav") || false;
           const url = useLocal ? 'http://localhost:6456/libs/navigation/navigation.js' : `https://${navBranch}--milo--adobecom.aem.page/libs/navigation/navigation.js`;
           const selfIntegrateUnav =  searchParams.get("self-unav") || "";
+          const isContainerResponsive = searchParams.get("container-responsive");
           let module = (await import(/* webpackIgnore: true */ `${url}`)).default;
           if (usebundle === 'true') {
             module = loadGnav;
@@ -44,6 +45,7 @@ const Footer = () => {
             footer: {
               authoringPath,
               privacyId,
+              isContainerResponsive: isContainerResponsive === "true",
               onReady: () => {
                 console.log('Footer ready');
               },
