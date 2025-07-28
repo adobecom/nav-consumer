@@ -33,6 +33,9 @@ const Footer = () => {
           const url = useLocal ? 'http://localhost:6456/libs/navigation/navigation.js' : `https://${navBranch}--milo--adobecom.aem.page/libs/navigation/navigation.js`;
           const selfIntegrateUnav =  searchParams.get("self-unav") || "";
           const isContainerResponsive = searchParams.get("container-responsive");
+          if (isContainerResponsive) {
+            document.querySelector('.footer-container').style.margin = '0 100px'
+          }
           let module = (await import(/* webpackIgnore: true */ `${url}`)).default;
           if (usebundle === 'true') {
             module = loadGnav;
