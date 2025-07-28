@@ -28,8 +28,14 @@ const isContainerResponsive = searchParams.get("container-responsive");
 async function init() {
   const url = `https://${navBranch}--milo--adobecom.aem.page/libs/navigation/${usebundle === 'true' ? 'dist/' : ''}navigation.js`;
   const { default: loadBlock } = await import(`${url}`);
-  if (isContainerResponsive) {
-    document.querySelector('.footer-container').style.margin = '0 100px'
+  const isDesktop = window.matchMedia('(min-width: 900px)');
+  const footerContainer = document.querySelector('.footer-container');
+  const updateFooterMargin = () => {
+    footerContainer.style.margin = (isDesktop.matches && isContainerResponsive) ? '0 100px' : '0';
+  };
+  updateFooterMargin();
+  if (isDesktop.matches && isContainerResponsive) {
+    isDesktop.addEventListener('change', updateFooterMargin);
   }
   loadBlock({
     env,
