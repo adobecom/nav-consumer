@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunknav_consumer=self.webpackChunknav_consumer||[]).push([[8146],{8146:(e,r,a)=>{a.r(r),a.d(r,{default:()=>t});var n=a(4112);a(6483);async function t(e){if(!e)return;let r=document.querySelector("main");if(!r)return;let a=e.split(",").map((e=>e.trim())).filter(Boolean);await Promise.all(a.map((e=>{let a=(0,n.r)("div",{class:e});return r.appendChild(a),(0,n.A)(a)})))}}}]);
-//# sourceMappingURL=8146.7e71cb4c.chunk.js.map

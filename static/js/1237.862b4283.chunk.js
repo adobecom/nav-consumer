@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunknav_consumer=self.webpackChunknav_consumer||[]).push([[1237],{1237:(e,n,c)=>{c.r(n),c.d(n,{default:()=>o});c(722);function o(e,n,c){let{codeRoot:o}=n,a=c("favicon")||"favicon",t="".concat(o,"/img/favicons/").concat(a),i=document.head.querySelector('link[rel="icon"]'),r='<link rel="apple-touch-icon" href="'.concat(t,'-180.png">\n                <link rel="manifest" href="').concat(t,'.webmanifest">');i.insertAdjacentHTML("afterend",r),i.href="".concat(t,".ico")}}}]);
+//# sourceMappingURL=1237.862b4283.chunk.js.map
