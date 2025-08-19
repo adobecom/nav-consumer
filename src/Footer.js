@@ -35,6 +35,7 @@ const Footer = () => {
           const isContainerResponsive = searchParams.get("container-responsive");
           const isDesktop = window.matchMedia('(min-width: 900px)');
           const footerContainer = document.querySelector('.footer-container');
+          const headerOff = searchParams.get("headerOff") || false;
           const updateFooterMargin = () => {
             footerContainer.style.margin = (isDesktop.matches && isContainerResponsive) ? '0 100px' : '0';
           };
@@ -46,7 +47,7 @@ const Footer = () => {
           if (usebundle === 'true') {
             module = loadGnav;
           }
-          module({
+          let conf = {
             env,
             locale,
             theme,
@@ -128,9 +129,13 @@ const Footer = () => {
             stageDomainsMap: {
               'developer.adobe.com': 'developer-stage.adobe.com'
             },
-          });
+          }
+          if (headerOff) {
+            delete conf.header;
+          }
+          module(conf);
         }
-      };  
+      };
       loadFooter();
     }, []);
 
