@@ -24,7 +24,8 @@ const useCompactGnav = searchParams.get("compactGnav") || false;
 const url = useLocal ? 'http://localhost:6456/libs/navigation/navigation.js' : `https://${navBranch}--milo--adobecom.aem.page/libs/navigation/navigation.js`;
 const selfIntegrateUnav =  searchParams.get("self-unav") || "";
 const isContainerResponsive = searchParams.get("container-responsive");
- 
+const headerOff = searchParams.get("headerOff") || false;
+
 async function init() {
   const url = `https://${navBranch}--milo--adobecom.aem.page/libs/navigation/${usebundle === 'true' ? 'dist/' : ''}navigation.js`;
   const { default: loadBlock } = await import(`${url}`);
@@ -37,7 +38,7 @@ async function init() {
   if (isDesktop.matches && isContainerResponsive) {
     isDesktop.addEventListener('change', updateFooterMargin);
   }
-  loadBlock({
+  let conf = {
     env,
     locale,
     theme,
@@ -119,7 +120,11 @@ async function init() {
     stageDomainsMap: {
       'developer.adobe.com': 'developer-stage.adobe.com'
     },
-  });
+  }
+  if (headerOff) {
+    delete conf.header;
+  }
+  loadBlock(conf);
   document.getElementById('close-gnav')?.addEventListener('click', () => {
    window.closeGnav?.();
   });
