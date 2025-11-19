@@ -26,6 +26,7 @@ const url = useLocal ? 'http://localhost:6456/libs/navigation/navigation.js' : `
 const selfIntegrateUnav =  searchParams.get("self-unav") || "";
 const isContainerResponsive = searchParams.get("container-responsive");
 const headerOff = searchParams.get("headerOff") || false;
+const signInCtaStyle = searchParams.get("signInCtaStyle") === 'primary'? 'primary': 'secondary';
 
 async function init() {
   const url = `https://${navBranch}--milo--adobecom.aem.page/libs/navigation/${usebundle === 'true' ? 'dist/' : ''}navigation.js`;
@@ -85,6 +86,9 @@ async function init() {
         ],
         uncAppId,
         showSectionDivider: showUnavSectionDivider.toLowerCase() === "true",
+        profile: {
+          signInCtaStyle,
+        },
       },
       onReady: () => {
         console.log('Gnav ready');

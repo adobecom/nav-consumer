@@ -36,6 +36,7 @@ const Footer = () => {
           const isDesktop = window.matchMedia('(min-width: 900px)');
           const footerContainer = document.querySelector('.footer-container');
           const headerOff = searchParams.get("headerOff") || false;
+          const signInCtaStyle = searchParams.get("signInCtaStyle") === 'primary'? 'primary': 'secondary';
           const updateFooterMargin = () => {
             footerContainer.style.margin = (isDesktop.matches && isContainerResponsive) ? '0 100px' : '0';
           };
@@ -92,6 +93,9 @@ const Footer = () => {
                 ],
                 uncAppId,
                 showSectionDivider: showUnavSectionDivider.toLowerCase() === "true",
+                profile: {
+                  signInCtaStyle,
+                },
               },
               onReady: () => {
                 console.log('Gnav ready');
