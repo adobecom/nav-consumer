@@ -12,6 +12,7 @@ const theme = searchParams.get("theme") || "light";
 const searchEnabled = searchParams.get("searchEnabled") || "off";
 const isMiniGnav = searchParams.get("mini-gnav") || false;
 const viewPlansCta = searchParams.get("view-plans-cta") === "true";
+const explorePlansCta = searchParams.get("explore-plans-cta") === "true";
 const desktopAppsCta = searchParams.get("desktopAppsCta") || false;
 const showUnavSectionDivider = searchParams.get("showUnavSectionDivider") || "false";
 const layout = searchParams.get("layout");
@@ -66,6 +67,7 @@ async function init() {
       layout,
       isLocalNav,
       viewPlansCta,
+      explorePlansCta,
       miniGnav: isMiniGnav === "true",
       desktopAppsCta: desktopAppsCta === "true",
       useNewMobileNav: newNav,
@@ -104,7 +106,7 @@ async function init() {
             </button>`;
         }
         const desktopAppsCta = document.querySelector('.feds-client-desktop-apps');
-        if(desktopAppsCta) {
+        if (desktopAppsCta) {
           const isDark = theme === 'dark';
           desktopAppsCta.innerHTML = `<button aria-label="Desktop Apps">Desktop Apps</button>`;
           const button = desktopAppsCta.querySelector('button');
@@ -122,6 +124,20 @@ async function init() {
           const isDark = theme === 'dark';
           viewPlansCta.innerHTML = `<button aria-label="Desktop Apps">View Plans</button>`;
           const button = viewPlansCta.querySelector('button');
+          // Apply styles
+          Object.assign(button.style, {
+            border: 'none',
+            background: isDark ? 'white' : 'black',
+            color: isDark ? 'black' : 'white',
+            borderRadius: '50px',
+            padding: '5px 12px'
+          });
+        }
+        const explorePlansCta = document.querySelector('.feds-client-explore-plans');
+        if (explorePlansCta) {
+          const isDark = theme === 'dark';
+          explorePlansCta.innerHTML = `<button aria-label="Desktop Apps">Explore Plans</button>`;
+          const button = explorePlansCta.querySelector('button');
           // Apply styles
           Object.assign(button.style, {
             border: 'none',
