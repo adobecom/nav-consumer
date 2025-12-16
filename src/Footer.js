@@ -37,6 +37,7 @@ const Footer = () => {
           const footerContainer = document.querySelector('.footer-container');
           const headerOff = searchParams.get("headerOff") || false;
           const signInCtaStyle = searchParams.get("signInCtaStyle") === 'primary'? 'primary': 'secondary';
+          const showPlansCta = searchParams.get("show-plans-cta") || false;
           const updateFooterMargin = () => {
             footerContainer.style.margin = (isDesktop.matches && isContainerResponsive) ? '0 100px' : '0';
           };
@@ -72,6 +73,7 @@ const Footer = () => {
               searchEnabled,
               customLinks,
               layout,
+              showPlansCta,
               isLocalNav,
               miniGnav: isMiniGnav === "true",
               desktopAppsCta: desktopAppsCta === "true",
@@ -115,6 +117,20 @@ const Footer = () => {
                   const isDark = theme === 'dark';
                   desktopAppsCta.innerHTML = `<button aria-label="Desktop Apps">Desktop Apps</button>`;
                   const button = desktopAppsCta.querySelector('button');
+                  // Apply styles
+                  Object.assign(button.style, {
+                    border: 'none',
+                    background: isDark ? 'white' : 'black',
+                    color: isDark ? 'black' : 'white',
+                    borderRadius: '50px',
+                    padding: '5px 12px'
+                  });
+                }
+                const viewPlansCta = document.querySelector('.feds-client-plans-cta');
+                if(viewPlansCta) {
+                  const isDark = theme === 'dark';
+                  viewPlansCta.innerHTML = `<button aria-label="View plans">View plans</button>`;
+                  const button = viewPlansCta.querySelector('button');
                   // Apply styles
                   Object.assign(button.style, {
                     border: 'none',
