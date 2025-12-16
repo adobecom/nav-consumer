@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunknav_consumer=self.webpackChunknav_consumer||[]).push([[8253],{8253:(e,a,n)=>{n.r(a),n.d(a,{default:()=>t});var r=n(1608);n(3658);async function t(e){if(!e)return;const a=document.querySelector("main");if(!a)return;const n=e.split(",").map((e=>e.trim())).filter(Boolean);await Promise.all(n.map((e=>{const n=(0,r.createTag)("div",{class:e});return a.appendChild(n),(0,r.loadBlock)(n)})))}}}]);
+//# sourceMappingURL=8253.54de8e59.chunk.js.map
