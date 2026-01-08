@@ -28,6 +28,7 @@ const selfIntegrateUnav =  searchParams.get("self-unav") || "";
 const isContainerResponsive = searchParams.get("container-responsive");
 const headerOff = searchParams.get("headerOff") || false;
 const signInCtaStyle = searchParams.get("signInCtaStyle") === 'primary'? 'primary': 'secondary';
+const gnavSource = searchParams.get("gnav-source");
 
 async function init() {
   const url = `https://${navBranch}--milo--adobecom.aem.page/libs/navigation/${usebundle === 'true' ? 'dist/' : ''}navigation.js`;
@@ -73,6 +74,7 @@ async function init() {
       useNewMobileNav: newNav,
       noBorder: noBorder.toLowerCase() === "true",
       selfIntegrateUnav: selfIntegrateUnav === 'true',
+      gnavSource,
       unav: {
         unavComponents,
         unavHelpChildren: [
