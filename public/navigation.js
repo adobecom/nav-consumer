@@ -79,8 +79,8 @@ async function init() {
       noBorder: noBorder.toLowerCase() === "true",
       selfIntegrateUnav: selfIntegrateUnav === 'true',
       gnavSource,
-      productEntryCta: productEntryCta === "on",
-      disableActiveLink,
+      productEntryCta,
+      disableActiveLink: disableActiveLink === 'true',
       unav: {
         unavComponents,
         unavHelpChildren: [
