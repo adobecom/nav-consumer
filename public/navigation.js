@@ -30,6 +30,8 @@ const headerOff = searchParams.get("headerOff") || false;
 const signInCtaStyle = searchParams.get("signInCtaStyle") === 'primary'? 'primary': 'secondary';
 const gnavSource = searchParams.get("gnav-source");
 const footerSource = searchParams.get("footer-source");
+const disableActiveLink = searchParams.get("disable-active-link");
+const productEntryCta = searchParams.get("product-cta");
 
 async function init() {
   const url = `https://${navBranch}--milo--adobecom.aem.page/libs/navigation/${usebundle === 'true' ? 'dist/' : ''}navigation.js`;
@@ -77,6 +79,8 @@ async function init() {
       noBorder: noBorder.toLowerCase() === "true",
       selfIntegrateUnav: selfIntegrateUnav === 'true',
       gnavSource,
+      productEntryCta: productEntryCta === "on",
+      disableActiveLink,
       unav: {
         unavComponents,
         unavHelpChildren: [
