@@ -32,6 +32,7 @@ const gnavSource = searchParams.get("gnav-source");
 const footerSource = searchParams.get("footer-source");
 const disableActiveLink = searchParams.get("disable-active-link");
 const productEntryCta = searchParams.get("product-cta");
+const useSusiModal = searchParams.get("useSusiModal");
 
 async function init() {
   const url = `https://${navBranch}--milo--adobecom.aem.page/libs/navigation/${usebundle === 'true' ? 'dist/' : ''}navigation.js`;
@@ -80,6 +81,7 @@ async function init() {
       selfIntegrateUnav: selfIntegrateUnav === 'true',
       gnavSource,
       productEntryCta,
+      useSusiModal: useSusiModal === 'true',
       disableActiveLink: disableActiveLink === 'true',
       unav: {
         unavComponents,
