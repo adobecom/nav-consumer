@@ -81,7 +81,7 @@ async function init() {
       selfIntegrateUnav: selfIntegrateUnav === 'true',
       gnavSource,
       productEntryCta,
-      useSusiModal: useSusiModal === 'true',
+      useSusiModal: useSusiModal === 'true' ? true : useSusiModal === 'false' ? false : undefined,
       disableActiveLink: disableActiveLink === 'true',
       unav: {
         unavComponents,
