@@ -130,6 +130,20 @@ async function init() {
             padding: '5px 12px'
           });
         }
+        const whatsNewCta = document.querySelector('.feds-client-whatsnew');
+        if (whatsNewCta) {
+        const isDark = theme === 'dark';
+        whatsNewCta.innerHTML = `<button aria-label="What's New">What's New</button>`;
+        const button = whatsNewCta.querySelector('button');
+        // Apply styles
+        Object.assign(button.style, {
+          border: 'none',
+          background: isDark ? 'white' : 'black',
+          color: isDark ? 'black' : 'white',
+          borderRadius: '50px',
+          padding: '5px 12px'
+        });
+      }
         const viewPlansCta = document.querySelector('.feds-client-view-plans');
         if (viewPlansCta) {
           const isDark = theme === 'dark';
