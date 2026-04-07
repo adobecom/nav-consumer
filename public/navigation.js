@@ -133,17 +133,26 @@ async function init() {
         const whatsNewCta = document.querySelector('.feds-client-whatsnew');
         if (whatsNewCta) {
         const isDark = theme === 'dark';
-        whatsNewCta.innerHTML = `<button aria-label="What's New">What's New</button>`;
-        const button = whatsNewCta.querySelector('button');
-        // Apply styles
-        Object.assign(button.style, {
-          border: 'none',
-          background: isDark ? 'white' : 'black',
-          color: isDark ? 'black' : 'white',
-          borderRadius: '50px',
-          padding: '5px 12px'
-        });
-      }
+        const fill = isDark ? 'white' : '#2c2c2c';
+         whatsNewCta.innerHTML = `
+        <button aria-label="What's New" title="What's New">
+        <span class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" focusable="false">
+          <path fill="${fill}" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+        </svg>
+      </span>
+    </button>`;
+       const button = whatsNewCta.querySelector('button');
+       Object.assign(button.style, {
+       border: 'none',
+       background: 'transparent',
+       cursor: 'pointer',
+       padding: '4px',
+       display: 'flex',
+       alignItems: 'center',
+       justifyContent: 'center',
+  });
+}
         const viewPlansCta = document.querySelector('.feds-client-view-plans');
         if (viewPlansCta) {
           const isDark = theme === 'dark';
