@@ -46,7 +46,7 @@ const Footer = () => {
           if (isDesktop.matches && isContainerResponsive) {
             isDesktop.addEventListener('change', updateFooterMargin);
           }
-          let module = (await import(/* webpackIgnore: true */ `${url}`)).default;
+          let module = (await import(/* @vite-ignore */ `${url}`)).default;
           if (usebundle === 'true') {
             module = loadGnav;
           }
