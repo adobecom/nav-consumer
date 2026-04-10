@@ -1,0 +1,1 @@
+import{p as n,j as i}from"./utils-EOEXLB4S-DacHn_aW.js";async function c(t){if(!t)return;const e=document.querySelector("main");if(!e)return;const l=t.split(",").map(a=>a.trim()).filter(Boolean);await Promise.all(l.map(a=>{const o=n("div",{class:a});return e.appendChild(o),i(o)}))}export{c as default};

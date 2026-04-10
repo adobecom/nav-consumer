@@ -1,0 +1,1 @@
+var o=["adobe-logo","breadcrumbs","column-break","cross-cloud-menu","gnav-brand","gnav-promo","large-menu","library-metadata","link-group","profile","region-selector","search","social","product-entry-cta","gnav-image"];function s(a,r){[...a.classList].some(e=>o.includes(e))||(a.dataset.failed="true",a.dataset.reason=`Failed loading ${r||""} block.`)}export{s as showError};

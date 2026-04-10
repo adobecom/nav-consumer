@@ -1,0 +1,13 @@
+import{lanaLog as f,toFragment as s}from"./utilities-TIE6AT4V-ZCdrCqdx.js";import"./placeholders-X26VVFJI-DOnNR-HC.js";import"./personalization-LRPWXI42-Dkp6eZ4o.js";import{c as g,b as n,g as y,w as v}from"./utils-EOEXLB4S-DacHn_aW.js";import"./helpers-6ZAOOXAH-BETqqH4u.js";var i={seo:"breadcrumbs-seo",seoLegacy:"breadcrumb-seo",showCurrent:"breadcrumbs-show-current-page",hiddenEntries:"breadcrumbs-hidden-entries",pageTitle:"breadcrumbs-page-title",base:"breadcrumbs-base",fromUrl:"breadcrumbs-from-url"},b,w=t=>{if((n(i.seo)||n(i.seoLegacy))==="off"||!t)return;const r={"@context":"https://schema.org","@type":"BreadcrumbList",itemListElement:[]};t.querySelectorAll("ul > li").forEach((l,c,a)=>{const u=l.querySelector("a"),h=u?u.innerText.trim():[...l.childNodes].filter(m=>!m.matches?.('span[aria-hidden="true"]')).map(m=>m.textContent.trim()).join("");let d=u?.href;!d&&c===a.length-1&&(d=window.location.href),r.itemListElement.push({"@type":"ListItem",position:c+1,name:h,item:d})});const o=s(b||(b=v(['<script type="application/ld+json">',"<\/script>"])),JSON.stringify(r));document.head.append(o)},p=t=>{if(!t)return null;const e=t.querySelector("ul"),r=n(i.pageTitle);(r||n(i.showCurrent)==="on")&&e.append(s`
+      <li>
+        ${r||document.title}
+      </li>
+    `);const o=n(i.hiddenEntries)?.toLowerCase().split(",").map(a=>a.trim())||[];e.querySelectorAll("li").forEach((a,u)=>{o.includes(a.innerText?.toLowerCase().trim())&&a.remove(),u>0&&a.insertAdjacentHTML("afterbegin",'<span aria-hidden="true">/</span>')});const l=t.classList.contains("no-transform")?" no-transform":"",c=s`
+    <div class="feds-breadcrumbs-wrapper">
+      <nav class="feds-breadcrumbs${l}" aria-label="Breadcrumb">${e}</nav>
+    </div>
+  `;return e.querySelector("li:last-of-type")?.setAttribute("aria-current","page"),c},L=async t=>{const e=t||s`<div><ul></ul></div>`,r=g(n(i.base));if(!r)return null;try{const l=await(await fetch(`${r}.plain.html`)).text(),c=new DOMParser().parseFromString(l,"text/html").body;return e.querySelector("ul")?.prepend(...c.querySelectorAll("li")),p(e)}catch(o){return f({e:o,message:"Breadcrumbs failed fetching base",tags:"gnav-breadcrumbs",errorType:"i"}),null}},S=()=>{if(n(i.fromUrl)!=="on")return null;const t=s`<ul></ul>`,e=document.location.pathname.replace(y().locale?.prefix||"","").split("/").filter(r=>r);for(let r=0;r<e.length;r+=1)t.append(s`
+      <li>
+        <a href="/${e.slice(0,r+1).join("/")}">${e[r].replaceAll("-"," ")}</a>
+      </li>
+    `);return p(s`<div>${t}</div>`)};async function $(t){try{const e=await L(t)||p(t)||S();return w(e),e}catch(e){return f({e,message:"Breadcrumbs failed rendering",tags:"gnav-breadcrumbs",errorType:"e"}),null}}export{$ as default};
