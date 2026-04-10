@@ -187,6 +187,7 @@ const Footer = () => {
     return (
         <main>
           <img src={banner} alt='banner' style={{ maxWidth: '100%', height: 'auto', display: 'block' }}></img>
+          <div>Testing something in react</div>
         </main>
     );
   }
