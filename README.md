@@ -4,7 +4,7 @@ Demo app for Adobe federated navigation and footer. It loads **`@adobecom/standa
 
 **Live React site (GitHub Pages):** [https://adobecom.github.io/nav-consumer/](https://adobecom.github.io/nav-consumer/)
 
-**Live Vanilla JS (GitHub Pages):** [https://adobecom.github.io/nav-consumer/](https://adobecom.github.io/)
+**Live Vanilla JS (GitHub Pages):** [https://adobecom.github.io/nav-consumer/](https://adobecom.github.io/nav-consumer/navigation.html)
 ## Stack
 
 - [React 18](https://react.dev/) with [Vite 5](https://vitejs.dev/)
