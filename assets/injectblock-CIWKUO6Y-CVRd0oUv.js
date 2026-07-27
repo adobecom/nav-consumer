@@ -1,1 +1,0 @@
-import{t as n,m as i}from"./utils-ULX764OF-BBtZYScd.js";async function c(t){if(!t)return;const e=document.querySelector("main");if(!e)return;const l=t.split(",").map(a=>a.trim()).filter(Boolean);await Promise.all(l.map(a=>{const o=n("div",{class:a});return e.appendChild(o),i(o)}))}export{c as default};
