@@ -22,6 +22,12 @@ export default defineConfig(({ command }) => ({
     // @adobecom/standalone-feds ships chunks with top-level await
     target: 'es2022',
   },
+  server: {
+    sourcemapIgnoreList: () => false,
+  },
+  css: {
+    devSourcemap: true,
+  },
   test: {
     globals: true,
     environment: 'jsdom',

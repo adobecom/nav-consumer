@@ -5,7 +5,7 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@adobecom/standalone-feds": "https://github.com/adobecom/milo/releases/download/feds-standalone-v0.0.20/adobecom-standalone-feds-0.0.20.tgz",
+    "@adobecom/standalone-feds": "https://github.com/adobecom/milo/releases/download/feds-standalone-v0.0.25/adobecom-standalone-feds-0.0.25.tgz",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.17.0",

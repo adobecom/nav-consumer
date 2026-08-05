@@ -7,8 +7,10 @@ const Footer = () => {
       const loadFooter = async () => {
         if (!window.footerInitialized) {
           window.footerInitialized = true;
-          const searchParams = new URLSearchParams(window.location.search);
-          const authoringPath = searchParams.get('authoringpath') || '/federal/dev';
+          const hash = window.location.hash; // e.g. "#/nav-demo?foo=bar"
+          const queryStart = hash.indexOf('?');
+          const searchParams = new URLSearchParams(queryStart >= 0 ? hash.slice(queryStart) : '');
+          const authoringPath = searchParams.get('authoringpath') || '/federal/home';
           const env = searchParams.get('env') || 'stage';
           const privacyId = searchParams.get('privacyid');
           const locale = searchParams.get('locale');
@@ -172,7 +174,9 @@ const Footer = () => {
               },
             },
             stageDomainsMap: {
-              'developer.adobe.com': 'developer-stage.adobe.com'
+              'developer.adobe.com': 'developer-stage.adobe.com',
+              'https://www.adobe.com/': `http://${window.location.host}/`,
+              'https://www.stage.adobe.com/': `http://${window.location.host}/`,
             },
           }
           if (headerOff) {
