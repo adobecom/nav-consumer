@@ -35,6 +35,7 @@ const disableActiveLink = searchParams.get("disable-active-link");
 const productEntryCta = searchParams.get("product-cta");
 const useSusiModal = searchParams.get("useSusiModal");
 const whatsNew = searchParams.get("whatsNew") || "off";
+const origin = searchParams.get("origin");
 async function init() {
   const url = `https://${navBranch}--milo--adobecom.aem.page/libs/navigation/${usebundle === 'true' ? 'dist/' : ''}navigation.js`;
   const { default: loadBlock } = await import(`${url}`);
@@ -52,6 +53,7 @@ async function init() {
     locale,
     theme,
     authoringPath,
+    origin,
     footer: {
       authoringPath,
       privacyId,
