@@ -18,6 +18,7 @@ const Footer = () => {
           const customLinks = searchParams.get("customlinks");
           const unavComponents = searchParams.get('unav') || 'appswitcher,profile,notifications,help';
           const imsClientId = searchParams.get('imsclientid') || 'adobedotcom-cc';
+          const imsAdditionalScopes = searchParams.get('imsAdditionalScopes') || '';
           const redirect = searchParams.get("redirect") || "off";
           const theme = searchParams.get("theme") || "light";
           const searchEnabled = searchParams.get("searchEnabled") || "off";
@@ -72,6 +73,7 @@ const Footer = () => {
             header: {
               useCompactGnav,
               imsClientId,
+              imsAdditionalScopes: imsAdditionalScopes.split(',').map(scope => scope.trim()).filter(scope => scope.length > 0),
               redirect,
               searchEnabled,
               customLinks,
