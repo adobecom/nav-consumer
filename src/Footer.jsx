@@ -42,6 +42,7 @@ const Footer = () => {
           const headerOff = searchParams.get("headerOff") || false;
           const signInCtaStyle = searchParams.get("signInCtaStyle") === 'primary'? 'primary': 'secondary';
           const showPlansCta = searchParams.get("show-plans-cta") || false;
+          const origin = searchParams.get("origin");
           const updateFooterMargin = () => {
             footerContainer.style.margin = (isDesktop.matches && isContainerResponsive) ? '0 100px' : '0';
           };
@@ -58,6 +59,7 @@ const Footer = () => {
             locale,
             theme,
             authoringPath,
+            origin,
             footer: {
               authoringPath,
               privacyId,
