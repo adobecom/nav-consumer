@@ -24,7 +24,6 @@ const isLocalNav = searchParams.get("localnav") || false;
 const newNav = searchParams.get("newNav") || "on";
 const useLocal = searchParams.get("useLocal") || false;
 const useCompactGnav = searchParams.get("compactGnav") || false;
-const url = useLocal ? 'http://localhost:6456/libs/navigation/navigation.js' : `https://${navBranch}--milo--adobecom.aem.page/libs/navigation/navigation.js`;
 const selfIntegrateUnav =  searchParams.get("self-unav") || "";
 const isContainerResponsive = searchParams.get("container-responsive");
 const headerOff = searchParams.get("headerOff") || false;
@@ -36,7 +35,11 @@ const productEntryCta = searchParams.get("product-cta");
 const useSusiModal = searchParams.get("useSusiModal");
 const whatsNew = searchParams.get("whatsNew") || "off";
 async function init() {
-  const url = `https://${navBranch}--milo--adobecom.aem.page/libs/navigation/${usebundle === 'true' ? 'dist/' : ''}navigation.js`;
+  let url = `https://${navBranch}--milo--adobecom.aem.page/libs/navigation/${usebundle === 'true' ? 'dist/' : ''}navigation.js`;
+  
+  if (useLocal) {
+    url = 'http://localhost:6456/libs/navigation/navigation.js'
+  }
   const { default: loadBlock } = await import(`${url}`);
   const isDesktop = window.matchMedia('(min-width: 900px)');
   const footerContainer = document.querySelector('.footer-container');
