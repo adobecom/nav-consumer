@@ -36,6 +36,7 @@ const useSusiModal = searchParams.get("useSusiModal");
 const whatsNew = searchParams.get("whatsNew") || "off";
 const origin = searchParams.get("origin");
 const foundation = searchParams.get("foundation") || "c1";
+const footerFoundation = searchParams.get("footer-foundation") || "c1";
 const darkFont = searchParams.get("gnav-dark-font") || "false";
 async function init() {
   let url = `https://${navBranch}--milo--adobecom.aem.page/libs/navigation/${usebundle === 'true' ? 'dist/' : ''}navigation.js`;
@@ -60,6 +61,7 @@ async function init() {
     authoringPath,
     origin,
     footer: {
+      foundation: footerFoundation,
       authoringPath,
       privacyId,
       footerSource,
