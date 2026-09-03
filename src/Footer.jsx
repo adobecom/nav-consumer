@@ -43,6 +43,9 @@ const Footer = () => {
           const signInCtaStyle = searchParams.get("signInCtaStyle") === 'primary'? 'primary': 'secondary';
           const showPlansCta = searchParams.get("show-plans-cta") || false;
           const origin = searchParams.get("origin");
+          const foundation = searchParams.get("foundation") || "c1";
+          const footerFoundation = searchParams.get("footer-foundation") || "c1";
+
           const updateFooterMargin = () => {
             footerContainer.style.margin = (isDesktop.matches && isContainerResponsive) ? '0 100px' : '0';
           };
@@ -63,6 +66,7 @@ const Footer = () => {
             footer: {
               authoringPath,
               privacyId,
+              foundation: footerFoundation,
               isContainerResponsive: isContainerResponsive === "true",
               onReady: () => {
                 console.log('Footer ready');
@@ -88,6 +92,7 @@ const Footer = () => {
               noBorder: noBorder.toLowerCase() === "true",
               selfIntegrateUnav: selfIntegrateUnav === 'true',
               whatsNew,
+              foundation,
               unav: {
                 unavComponents,
                 unavHelpChildren: [
