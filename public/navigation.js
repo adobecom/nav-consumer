@@ -5,7 +5,6 @@ const privacyId = searchParams.get("privacyid");
 const locale = searchParams.get("locale");
 const navBranch = searchParams.get("navbranch") || "stage";
 const customLinks = searchParams.get("customlinks");
-const unavComponents = searchParams.get("unav") || 'appswitcher,profile,notifications,help';
 const imsClientId = searchParams.get("imsclientid") || "adobedotcom-cc";
 const imsAdditionalScopes = searchParams.get('imsAdditionalScopes') || '';
 const redirect = searchParams.get("redirect") || "off";
@@ -44,6 +43,11 @@ async function init() {
   if (useLocal) {
     url = 'http://localhost:6456/libs/navigation/navigation.js'
   }
+  let unavComponents = searchParams.get("unav") || 'appswitcher,profile,notifications,help';
+  if (unavComponents === 'false') {
+    unavComponents = null;
+  }
+
   const { default: loadBlock } = await import(`${url}`);
   const isDesktop = window.matchMedia('(min-width: 900px)');
   const footerContainer = document.querySelector('.footer-container');
