@@ -29,6 +29,7 @@ const headerOff = searchParams.get("headerOff") || false;
 const signInCtaStyle = searchParams.get("signInCtaStyle") === 'primary'? 'primary': 'secondary';
 const gnavSource = searchParams.get("gnav-source");
 const footerSource = searchParams.get("footer-source");
+const isEvent = searchParams.get("is-event") === "true";
 const disableActiveLink = searchParams.get("disable-active-link");
 const productEntryCta = searchParams.get("product-cta");
 const useSusiModal = searchParams.get("useSusiModal");
@@ -43,7 +44,9 @@ async function init() {
   if (useLocal) {
     url = 'http://localhost:6456/libs/navigation/navigation.js'
   }
-  let unavComponents = searchParams.get("unav") || 'appswitcher,profile,notifications,help';
+  const unavParam = searchParams.get("unav");
+  const unavOff = unavParam === 'off';
+  let unavComponents = unavParam || 'appswitcher,profile,notifications,help';
   if (unavComponents === 'false') {
     unavComponents = null;
   }
@@ -69,6 +72,7 @@ async function init() {
       authoringPath,
       privacyId,
       footerSource,
+      isEvent,
       isContainerResponsive: isContainerResponsive === "true",
       onReady: () => {
         console.log('Footer ready');
@@ -101,25 +105,27 @@ async function init() {
       whatsNew,
       foundation,
       darkFont,
-      unav: {
-        unavComponents,
-        unavHelpChildren: [
-          { type: 'Support' },
-          { type: 'Community' },
-          {
-            title: 'Custom 1',
-            onAction: () => {
-              console.log('Custom 1 is clicked!')
+      ...(unavOff ? {} : {
+        unav: {
+          unavComponents,
+          unavHelpChildren: [
+            { type: 'Support' },
+            { type: 'Community' },
+            {
+              title: 'Custom 1',
+              onAction: () => {
+                console.log('Custom 1 is clicked!')
+              },
+              analyticsIdentifier: 'unav-custom-1',
             },
-            analyticsIdentifier: 'unav-custom-1',
+          ],
+          uncAppId,
+          showSectionDivider: showUnavSectionDivider.toLowerCase() === "true",
+          profile: {
+            signInCtaStyle,
           },
-        ],
-        uncAppId,
-        showSectionDivider: showUnavSectionDivider.toLowerCase() === "true",
-        profile: {
-          signInCtaStyle,
         },
-      },
+      }),
       onReady: () => {
         console.log('Gnav ready');
         const searchElement = document.querySelector('.feds-client-search');
