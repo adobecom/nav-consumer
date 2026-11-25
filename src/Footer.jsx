@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import banner from './learn.png';
-import loadGnav from '@adobecom/standalone-feds';
 
 const Footer = () => {
     useEffect(() => {
@@ -53,10 +52,9 @@ const Footer = () => {
           if (isDesktop.matches && isContainerResponsive) {
             isDesktop.addEventListener('change', updateFooterMargin);
           }
-          let module = (await import(/* @vite-ignore */ `${url}`)).default;
-          if (usebundle === 'true') {
-            module = loadGnav;
-          }
+          const module = usebundle === 'true'
+            ? (await import('@adobecom/standalone-feds')).default
+            : (await import(/* @vite-ignore */ `${url}`)).default;
           let conf = {
             env,
             locale,
