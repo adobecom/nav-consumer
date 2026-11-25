@@ -1,0 +1,1 @@
+var l=new WeakMap;document.addEventListener("mep:content-cloned",({detail:{source:e,clone:t}})=>{const o=[e,...e.querySelectorAll("mas-field, [data-mas-block]")],s=[t,...t.querySelectorAll("mas-field, [data-mas-block]")];o.forEach((d,c)=>{const a=l.get(d);a&&l.set(s[c],a)})});export{l as mepMasStudioUrls};
