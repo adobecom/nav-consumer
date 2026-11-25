@@ -1,0 +1,1 @@
+import{c as l,D as n}from"./utils-WAZ6L2UH-BdXmFdQb.js";import"./index-JdjrPV2v.js";async function s(t){if(!t)return;const o=document.querySelector("main");if(!o)return;const i=t.split(",").map(a=>a.trim()).filter(Boolean);await Promise.all(i.map(a=>{const e=l("div",{class:a});return o.appendChild(e),n(e)}))}export{s as default};
